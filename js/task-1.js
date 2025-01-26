@@ -1,20 +1,28 @@
 `use strict`;
-//Станція з продажу ремонтних дроїдів готова до запуску, залишилося написати програмне забезпечення для відділу продажів. Оголоси функцію makeTransaction(quantity, pricePerDroid, customerCredits), яка складає та повертає повідомлення про купівлю ремонтних дроїдів.
+//Declare a function makeTransaction(quantity, pricePerDroid, customerCredits),
 
-//Вона оголошує три параметри, значення яких будуть задаватися під час її виклику:
+//It declares three parameters, the values ​​of which will be set when it is called:
+//quantity — number of droids ordered
+//pricePerDroid — price of one droid
+//customerCredits — amount of funds in the customer's account
 
-//quantity — кількість замовлених дроїдів
-//pricePerDroid — ціна одного дроїда
-//customerCredits — сума коштів на рахунку клієнта
+//Complete the function as follows
 
-//Доповни функцію таким чином:
+//Declare a variable to store the total amount of the order
+//(the total cost of all droids ordered) and assign it an expression for calculating this amount.
+//Add a check to see if the customer will be able to pay for the order:
+//if the amount to be paid exceeds the number of credits on the customer's account,
+//the function should return the string "Insufficient funds!"
+//otherwise, the function should return the string "You ordered <quantity> droids worth <totalPrice> credits!".
 
-//Оголоси змінну для зберігання загальної суми замовлення (загальна вартість усіх замовлених дроїдів) і задай їй вираз розрахунку цієї суми.
-//Додай перевірку, чи зможе клієнт оплатити замовлення:
-//якщо сума до сплати перевищує кількість кредитів на рахунку клієнта, функція має повертати рядок "Insufficient funds!"
-//в іншому випадку функція має повертати рядок "You ordered <quantity> droids worth <totalPrice> credits!", де <quantity> це кількість замовлених дроїдів, а <totalPrice> це їх загальна вартість.
-
-//Візьми код нижче і встав після оголошення своєї функції для перевірки коректності її роботи. У консоль будуть виведені результати її роботи.
+function makeTransaction(quantity, pricePerDroid, customerCredits) {
+  const totalPrice = quantity * pricePerDroid;
+  if (totalPrice > customerCredits) {
+    return `Insufficient funds!`;
+  } else {
+    return `You ordered ${quantity} droids worth ${totalPrice} credits!`;
+  }
+}
 
 console.log(makeTransaction(5, 3000, 23000)); // "You ordered 5 droids worth 15000 credits!"
 console.log(makeTransaction(3, 1000, 15000)); // "You ordered 3 droids worth 3000 credits!"
@@ -22,4 +30,4 @@ console.log(makeTransaction(10, 5000, 8000)); // "Insufficient funds!"
 console.log(makeTransaction(8, 2000, 10000)); // "Insufficient funds!"
 console.log(makeTransaction(10, 500, 5000)); // "You ordered 10 droids worth 5000 credits!"
 
-//Залиш цей код для перевірки ментором.
+//Leave this code for review by a mentor.
