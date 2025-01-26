@@ -1,13 +1,19 @@
 `use strict`;
-//Функція checkForSpam(message) приймає рядок (параметр message), перевіряє його на вміст заборонених слів spam і sale, і повертає результат перевірки. Слова в рядку параметра message можуть бути в довільному регістрі, наприклад SPAM або sAlE.
+//The checkForSpam(message) function takes a string (message parameter),
+//checks it for the prohibited words spam and sale, and returns the result of the check.
+//The words in the message parameter string can be in any case, for example SPAM or sAlE.
 
-//Доповни код функції таким чином, що:
+//Add the function code so that:
 
-//Якщо знайдено заборонене слово (spam або sale), то функція повертає буль true
-//Якщо в рядку відсутні заборонені слова, функція повертає буль false
-
-//Візьми код нижче і встав після оголошення своєї функції для перевірки коректності її роботи. У консоль будуть виведені результати її роботи.
-
+//If a prohibited word (spam or sale) is found, the function returns boolean true
+//If there are no prohibited words in the string, the function returns boolean false
+function checkForSpam(message) {
+  return (
+    message.toLowerCase().includes(`spam`) ||
+    message.toLowerCase().includes(`sale`)
+  );
+}
+//Leave this code for review by a mentor.
 console.log(checkForSpam("Latest technology news")); // false
 console.log(checkForSpam("JavaScript weekly newsletter")); // false
 console.log(checkForSpam("Get best sale offers now!")); // true
@@ -15,5 +21,3 @@ console.log(checkForSpam("Amazing SalE, only tonight!")); // true
 console.log(checkForSpam("Trust me, this is not a spam message")); // true
 console.log(checkForSpam("Get rid of sPaM emails. Our book in on sale!")); // true
 console.log(checkForSpam("[SPAM] How to earn fast money?")); // true
-
-//Залиш цей код для перевірки ментором.
